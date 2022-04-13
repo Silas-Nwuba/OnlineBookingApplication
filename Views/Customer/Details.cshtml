@@ -1,0 +1,122 @@
+﻿@model CustomerDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Bus Ticket</li>
+                </ol>
+            </nav>
+            
+            <div class="container-fluid">
+                <div class="col-md-3 pl-0 img-responsive">
+                    <img src="~/Image/bus 1.png"class="img-rounded"style="width:200px"/>
+                </div>
+                <div class="col-md-8 pr-0">
+                    <div class="float-right">
+                        <p class="font-weight-normal"><b>GUI Logistic</b></p>
+                        <p class="font-weight-normal">PMB: 300000</p>
+                        <p class="font-weight-normal">Head office : No.348 Ajao Esate<br />Off Airport Road lagos</p>
+
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="float-left"style="margin-left:15px">From : @Model.DepartureFrom</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="float-right">To : @Model.ArivalTo</h5>
+                    </div>
+
+                </div>
+                <hr />
+
+                <h5>Personal Details</h5>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="font-weight-normal">Full name</h6>
+                        <p1>@Model.FullName</p1>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6 class="font-weight-normal">State</h6>
+                        <p1>@Model.State</p1>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6 class="font-weight-normal">NIN No</h6>
+                        <p1>@Model.NIN</p1>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6 class="font-weight-normal">Phone Number</h6>
+                        <p1>@Model.PhoneNumber</p1>
+                    </div>
+                    <div class="col-sm-3"style="float:right">
+                        <h6 class="font-weight-normal">Gender</h6>
+                        <p1>@Model.Gender</p1>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="col-md-12 table-responsive-md">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Bus Name
+                                </th>
+                                <th>
+                                    Border Date
+                                </th>
+                                <th>
+                                    Ticket Type
+                                </th>
+                                <th>
+                                    Seat No
+                                </th>
+                                <th>
+                                    Border Time
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Model.Bus
+                                </td>
+                                <td>
+                                    @Model.Date.ToString("dd-mm-yyyy")
+                                </td>
+                                <td>
+                                    @Model.TicketType
+                                </td>
+                                <td>
+                                    @Model.SeatNo
+                                </td>
+                                <td>
+                                    @Model.Date.ToString("HH:mm")
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        @*<thead>
+                            <tr>
+                                <th>Special Request Fee</th>
+                            </tr>
+                            <tr>
+                                <th>Book For Other Fee</th>
+                            </tr>
+                            <tr>
+                                <th>Payment Type</th>
+                            </tr>
+                            <tr>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>*@
+                    </table>
+
+                </div>
+        </div>
+    </div>
+</div>
