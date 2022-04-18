@@ -33,6 +33,7 @@ namespace OnlineBookingApplication
             services.AddRazorPages();
             services.AddScoped<ICustomer, CustomerImplementation>();
             services.AddScoped<IBookingRecord,BookingImplementation>();
+            services.AddScoped<ITransactionAmount, ITransactionImplentation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

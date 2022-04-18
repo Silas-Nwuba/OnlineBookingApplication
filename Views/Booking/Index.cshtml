@@ -17,6 +17,10 @@
             <hr /><br />
             <form method="post" enctype="multipart/form-data" asp-action="Create">
                 <div class="form-row">
+                    <div style="display:none"class="form-group col-md-3">
+                        <input asp-for="CustomerId" class="form-control" readonly style="background-color: #ffffff75" />
+
+                    </div>
                     <div class="form-group col-md-1">
                         <label asp-for="Bus"></label>
                     </div>
@@ -43,37 +47,13 @@
                 <div class="form-row">
 
                     <div class="form-group col-md-1">
-                        <label asp-for="SeatNo"></label>
+                        <label asp-for="SeatNoId"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <select asp-for="SeatNo" class="form-control">
+                        <select asp-for="SeatNoId" class="form-control" asp-items=" ViewBag.SeatNoId">
                             <option value="" disabled selected hidden>Seat No</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option> 19</option>
-                            <option> 20</option>
-                            <option> 21</option>
-                            <option> 22</option>
-                            <option> 23</option>
-                            <option> 24</option>
                         </select>
-                        <span asp-validation-for="SeatNo" class="text-danger"></span>
+                        <span asp-validation-for="SeatNoId" class="text-danger"></span>
                     </div>
                     <div class="form-group col-md-1">
                         <label asp-for="SpecialRequest"></label>
@@ -125,44 +105,45 @@
                     </div>
                     <select asp-for="DepartureFrom" class="form-control">
                         <option value="" disabled selected hidden>Select City</option>
-                        <option>Abia</option>
-                        <option>Adamawa</option>
-                        <option>Akwa Ibom</option>
-                        <option>Anambra</option>
-                        <option>Bauchi</option>
-                        <option>Bayelsa</option>
-                        <option>Benue</option>
-                        <option>Borno</option>
-                        <option>Cross River</option>
-                        <option>Delta</option>
-                        <option>Ebonyi</option>
-                        <option>Edo</option>
-                        <option>Ekiti</option>
-                        <option>Enugu</option>
-                        <option>Gombe</option>
-                        <option>Imo</option>
-                        <option>Jigawa</option>
-                        <option>Kaduna</option>
-                        <option> Kano</option>
-                        <option> Katsina</option>
-                        <option> Kebbi</option>
-                        <option> Kogi</option>
-                        <option> Kwara</option>
-                        <option> Lagos</option>
-                        <option> Nasarawa</option>
-                        <option>Niger</option>
-                        <option>Ogun</option>
-                        <option>Ondo</option>
-                        <option>Osun</option>
-                        <option>Oyo</option>
-                        <option>Plateau</option>
-                        <option>Rivers</option>
-                        <option>Sokoto</option>
-                        <option>Taraba</option>
-                        <option>Yobe</option>
-                        <option>Zamfara</option>
-                        <option>Abia</option>
-                        <option>Fct</option>
+                        <option>Select Terminal</option>
+                        <option value="5ead43347809643ac0d7687e">Aba,  Asa Road Highway</option>
+                        <option value="5ead4370ab6fff3ac03f313b">Aba,  Asa Road Local</option>
+                        <option value="5c51bc91860d8b5ac0000002">Aba, Factory Road</option>
+                        <option value="5c51bc91860d8b5ac0000011">Abakaliki, 25A Afikpo Rd. Highway</option>
+                        <option value="5c51bc91860d8b5ac0000017">Abuja, Gwagwalada</option>
+                        <option value="5c51bc91860d8b5ac0000020">Abuja, Kubwa</option>
+                        <option value="5c51bc91860d8b5ac0000035">Abuja, Mararaba</option>
+                        <option value="5c51bc91860d8b5ac0000021">Abuja, Utako</option>
+                        <option value="5c51bc91860d8b5ac0000019">Abuja, Zuba</option>
+                        <option value="5c51bc91860d8b5ac0000010">Afikpo, Ngodo Road</option>
+                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
+                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
+                        <option value="5c51bc91860d8b5ac0000053">Asaba, Head Bridge</option>
+                        <option value="5c51bc91860d8b5ac0000007">Awka, Uni-Zik Junction Opposite</option>
+                        <option value="5c51bc91860d8b5ac0000012">Benin,119 Akpakpava Road, 2nd Junction</option>
+                        <option value="5c51bc91860d8b5ac0000008">Calabar, Bedwell Street</option>
+                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
+                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
+                        <option value="5ead44ec4ac7923ac0a9b8fe">Calabar, Ettagbo</option>
+                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
+                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
+                        <option value="5c51bc91860d8b5ac0000014">Enugu, Garriki</option>
+                        <option value="5e70e4281bc1506ac0706228">Enugu, Ogbete</option>
+                        <option value="5c51bc91860d8b5ac0000038">Ibadan, Sango Road</option>
+                        <option value="5c51bc91860d8b5ac0000041">Lagos, Ajah</option>
+                        <option value="5c51bc91860d8b5ac0000031">Lagos, Ajegunle</option>
+                        <option value="5c51bc91860d8b5ac0000029">Lagos, Demorose</option>
+                        <option value="5c51bc91860d8b5ac0000034">Lagos, Ejigbo</option>
+                        <option value="5c51bc91860d8b5ac0000032">Lagos, Ikorodu</option>
+                        <option value="5c51bc91860d8b5ac0000049">Lagos, Jibowu</option>
+                        <option value="5c51bc91860d8b5ac0000028">Lagos, Ojuelegba</option>
+                        <option value="5c51bc91860d8b5ac0000030">Lagos, Orile</option>
+                        <option value="5c51bc91860d8b5ac0000046">Minna, David Mark Road</option>
+                        <option value="5ead47fc4ac7923ac0a9b900">Yenagoa, Ekeki</option>
+                        <option value="5c51bc91860d8b5ac0000044">Yenagoa, Okutukutu</option>
+                        <option value="5c51bc91860d8b5ac0000009">Warri, Effurum, Uvwie-Sapele Road</option>
+                        <option value="5e6f9b622091d66ac051d226">Sango Ota, 54 Idiroko Road</option>
+                        <option value="5c51bc91860d8b5ac0000048">Nnewi, Nwafor Orizu Roundabout</option>
 
                     </select>
                     <span asp-validation-for="DepartureFrom" class="text-danger"></span>
@@ -173,54 +154,69 @@
                     </div>
                     <select asp-for="ArivalTo" class="form-control">
                         <option value="" disabled selected hidden>Select City</option>
-                        <option>Abia</option>
-                        <option>Adamawa</option>
-                        <option>Akwa Ibom</option>
-                        <option>Anambra</option>
-                        <option>Bauchi</option>
-                        <option>Bayelsa</option>
-                        <option>Benue</option>
-                        <option>Borno</option>
-                        <option>Cross River</option>
-                        <option>Delta</option>
-                        <option>Ebonyi</option>
-                        <option>Edo</option>
-                        <option>Ekiti</option>
-                        <option>Enugu</option>
-                        <option>Gombe</option>
-                        <option>Imo</option>
-                        <option>Jigawa</option>
-                        <option>Kaduna</option>
-                        <option> Kano</option>
-                        <option> Katsina</option>
-                        <option> Kebbi</option>
-                        <option> Kogi</option>
-                        <option> Kwara</option>
-                        <option> Lagos</option>
-                        <option> Nasarawa</option>
-                        <option>Niger</option>
-                        <option>Ogun</option>
-                        <option>Ondo</option>
-                        <option>Osun</option>
-                        <option>Oyo</option>
-                        <option>Plateau</option>
-                        <option>Rivers</option>
-                        <option>Sokoto</option>
-                        <option>Taraba</option>
-                        <option>Yobe</option>
-                        <option>Zamfara</option>
-                        <option>Abia</option>
-                        <option>Fct</option>
-
+                        <option>Select Destination</option>
+                        <option value="5c51bc91860d8b5ac0000011">Abakaliki, 25A Afikpo Rd. Highway</option>
+                        <option value="5c51bc91860d8b5ac0000017">Abuja, Gwagwalada</option>
+                        <option value="5c51bc91860d8b5ac0000020">Abuja, Kubwa</option>
+                        <option value="5c51bc91860d8b5ac0000035">Abuja, Mararaba</option>
+                        <option value="5c51bc91860d8b5ac0000021">Abuja, Utako</option>
+                        <option value="5c51bc91860d8b5ac0000019">Abuja, Zuba</option>
+                        <option value="5c51bc91860d8b5ac0000010">Afikpo, Ngodo Road</option>
+                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
+                        <option value="5c51bc91860d8b5ac0000053">Asaba, Head Bridge</option>
+                        <option value="5c51bc91860d8b5ac0000007">Awka, Uni-Zik Junction Opposite</option>
+                        <option value="5c51bc91860d8b5ac0000012">Benin,119 Akpakpava Road, 2nd Junction</option>
+                        <option value="5c51bc91860d8b5ac0000008">Calabar, Bedwell Street</option>
+                        <option value="5ead44ec4ac7923ac0a9b8fe">Calabar, Ettagbo</option>
+                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
+                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
+                        <option value="5c51bc91860d8b5ac0000014">Enugu, Garriki</option>
+                        <option value="5e70e4281bc1506ac0706228">Enugu, Ogbete</option>
+                        <option value="5c51bc91860d8b5ac0000015">Enugu, Okpara Avenue</option>
+                        <option value="5c51bc91860d8b5ac0000016">Enugu-Ezike, Ogurute </option>
+                        <option value="5c51bc91860d8b5ac0000038">Ibadan, Sango Road</option>
+                        <option value="5c51bc91860d8b5ac0000054">Ikom, Four Corner</option>
+                        <option value="5c51bc91860d8b5ac0000026">Ilorin, Old Jebba Road</option>
+                        <option value="5c51bc91860d8b5ac0000052">Jos, Terminal market</option>
+                        <option value="5c51bc91860d8b5ac0000055">Kaduna, Command Junction Traffic</option>
+                        <option value="5c51bc91860d8b5ac0000041">Lagos, Ajah</option>
+                        <option value="5c51bc91860d8b5ac0000031">Lagos, Ajegunle</option>
+                        <option value="5c51bc91860d8b5ac0000029">Lagos, Demorose</option>
+                        <option value="5c51bc91860d8b5ac0000034">Lagos, Ejigbo</option>
+                        <option value="5c51bc91860d8b5ac0000032">Lagos, Ikorodu</option>
+                        <option value="5c51bc91860d8b5ac0000049">Lagos, Jibowu</option>
+                        <option value="5c51bc91860d8b5ac0000027">Lagos, Mazamaza</option>
+                        <option value="5c51bc91860d8b5ac0000051">Lagos, Ojota</option>
+                        <option value="5c51bc91860d8b5ac0000028">Lagos, Ojuelegba</option>
+                        <option value="5c51bc91860d8b5ac0000030">Lagos, Orile</option>
+                        <option value="5c51bc91860d8b5ac0000046">Minna, David Mark Road</option>
+                        <option value="5c51bc91860d8b5ac0000048">Nnewi, Nwafor Orizu Roundabout</option>
+                        <option value="5c51bc91860d8b5ac0000040">Nsukka, Enugu Road</option>
+                        <option value="5c51bc91860d8b5ac0000043">Obollo-Afor, Markurdi  Road</option>
+                        <option value="5c51bc91860d8b5ac0000006">Onitsha, Oguta</option>
+                        <option value="5c51bc91860d8b5ac0000005">Onitsha, Owerri Road</option>
+                        <option value="5ead44477809643ac0d76880">Owerri, Control</option>
+                        <option value="5c51bc91860d8b5ac0000023">Owerri, Orji</option>
+                        <option value="5e6f983e2091d66ac051d225">Port Harcourt, OIl Mill</option>
+                        <option value="605ef32583151709365abd8d">Port Harcourt, Rumuodomaya</option>
+                        <option value="5e6f9b622091d66ac051d226">Sango Ota, 54 Idiroko Road</option>
+                        <option value="5c51bc91860d8b5ac0000003">Umuahia, Crowther Street</option>
+                        <option value="5c51bc91860d8b5ac0000004">Uyo, Itam-Itam</option>
+                        <option value="5c51bc91860d8b5ac0000009">Warri, Effurum, Uvwie-Sapele Road</option>
+                        <option value="5ead47fc4ac7923ac0a9b900">Yenagoa, Ekeki</option>
+                        <option value="5c51bc91860d8b5ac0000044">Yenagoa, Okutukutu</option>
                     </select>
+
+            
                     <span asp-validation-for="ArivalTo" class="text-danger"></span>
-                </div><br /><br /><br />
+                </div><br /><br />
                 <div class="form-group">
                     <button type="submit" class="btn btn-rounded btn btn-primary float-left">Submit</button>
                     <a class="btn btn-rounded btn btn-success float-right" asp-action="Index" asp-controller="Customer"><i class="fa-solid fa-backward"><l style="margin-left:7px">back</l></i></a>
                 </div>
 
             </form>
+            <br /><br />
         </div>
     </div>
 

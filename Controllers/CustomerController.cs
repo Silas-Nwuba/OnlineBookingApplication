@@ -11,6 +11,7 @@ using ProjectServices;
 
 namespace OnlineBookingApplication.Controllers
 {
+
     public class CustomerController : Controller
     {
         private readonly ICustomer _customer;

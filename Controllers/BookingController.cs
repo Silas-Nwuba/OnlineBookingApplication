@@ -6,6 +6,7 @@ using OnlineBookingApplication.Models;
 
 namespace OnlineBookingApplication.Controllers
 {
+
     public class BookingController : Controller
     {
         private readonly IBookingRecord _booking;
@@ -19,40 +20,53 @@ namespace OnlineBookingApplication.Controllers
         [HttpGet]
         public IActionResult Index(int id)
         {
+            ViewBag.SeatNoId = _booking.GetSeatNo();
             var GetBy = _customer.GetAsyncId(id);
             var ViewModel = new BookingRecordViewModel
             {
                 FullName = GetBy.FullName,
                 NIN = GetBy.NIN,
-                Id = GetBy.Id,
+                CustomerId = GetBy.Id,
+               
             };
             return View(ViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(BookingCreateViewModel bookingRecordViewModel)
+        public async Task<IActionResult>Create(BookingCreateViewModel bookingRecordViewModel)
         {
             if (ModelState.IsValid)
             {
-                var ViewModel = new BookingRecord()
+                try
                 {
-                    Id = bookingRecordViewModel.Id,
-                    SeatNo = bookingRecordViewModel.SeatNo,
-                    TicketId = bookingRecordViewModel.TicketId,
-                    CustomerId = bookingRecordViewModel.CustomerId,
-                    Date = bookingRecordViewModel.Date,
-                    DepartureFrom = bookingRecordViewModel.DepartureFrom,
-                    ArivalTo = bookingRecordViewModel.ArivalTo,
-                    Payment = bookingRecordViewModel.Payment,
-                    FullName = bookingRecordViewModel.FullName,
-                    NiN = bookingRecordViewModel.NIN,
-                    Bus = bookingRecordViewModel.Bus,
-                    TicketType = bookingRecordViewModel.TicketType,
-                    SpecialRequest = bookingRecordViewModel.SpecialRequest,
-                    BookForOther = bookingRecordViewModel.BookForOther,
-                };
-                await _booking.CreateAsync(ViewModel);
-            }
+                    var ViewModel = new BookingRecord()
+                    {
+                        Id = bookingRecordViewModel.Id,
+                        CustomerId = bookingRecordViewModel.CustomerId,
+                        Date = bookingRecordViewModel.Date,
+                        DepartureFrom = bookingRecordViewModel.DepartureFrom,
+                        ArivalTo = bookingRecordViewModel.ArivalTo,
+                        Payment = bookingRecordViewModel.Payment,
+                        FullName = bookingRecordViewModel.FullName,
+                        NiN = bookingRecordViewModel.NIN,
+                        Bus = bookingRecordViewModel.Bus,
+                        TicketType = bookingRecordViewModel.TicketType,
+                        SpecialRequest = bookingRecordViewModel.SpecialRequest,
+                        BookForOther = bookingRecordViewModel.BookForOther,
+                        SeatNoId = bookingRecordViewModel.SeatNoId,
+                        //SeatNumber = _booking.GetById(bookingRecordViewModel.SeatNoId).SeatNumber,
+                    };
+                    await _booking.CreateAsync(ViewModel);
+                    return RedirectToAction("Index", "Transaction", new { id = ViewModel.Id });
+
+                }
+                catch (System.Exception exp)
+                {
+
+                    throw exp;
+                }
+            };
+            ViewBag.SeatNoId = _booking.GetSeatNo();
             return View();
         }
     }

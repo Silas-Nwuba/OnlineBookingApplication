@@ -1,0 +1,105 @@
+﻿@model TransactionCreateViewModel
+@{
+    ViewBag.Title = "Booking";
+}
+<div class="container">
+    <div class="card">
+        <div class="card-body" style="background-color:white">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">GMT Motor</li>
+                    <li class="breadcrumb-item">Booking System</li>
+                    <li class="breadcrumb-item">GMT Reciept</li>
+                </ol>
+            </nav>
+            <br /><br />
+            <h4>Customer Details</h4>
+            <hr />
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">Full Name : @Model.FullName</p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">Seat No : @Model.SeatNo</p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">NIN : @Model.NiN</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">Departure From : @Model.DepartureFrom State</p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">Arival To: @Model.ArivalTo State</p>
+
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight-normal">Date : @Model.Date</p>
+
+                    </div>
+                </div>
+                <hr />
+                <h4>Payment Details</h4><br />
+                <div class="col-md-12 table-responsive-md">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Special Request</th>
+                                <th>Book For Other</th>
+                                <th>Ticket Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Special</td>
+                                <td></td>
+                                <td></td>
+                                <td>@Model.SpecialRequest.ToString("C")</td>
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>@Model.Book</td>
+                                <td></td>
+                                <td>@Model.BookForOther.ToString("C")</td>
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>@Model.Ticket</td>
+                                <td>@Model.TicketType.ToString("C")</td>
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="table-dark"><b>Total Amount</b></td>
+                                <td class="table-dark"><b>@Model.TotalAmount.ToString("C")</b></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br /><br /><br />
+                <button type="submit" class="btn btn-success"><l style="outline:none">Procees</l></button>
+                <br />
+                <br /><br />
+            </form>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+

@@ -11,29 +11,30 @@
 
 
 </head>
-<body style="background-color:#eee">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-info border-bottom">
             <div class="container">
-                @*<div class="d-flex flex-wrap">
-                <img src="~/Image/bus 1.png" class="img-rounded" style="width:200px" />*@
-                <p class="font-weight-bold ml-3 p-4 text-white mt-3">Online Booking</p>
-                
+                <p class="font-weight-bold ml-3 p-4 text-white mt-3 float-left">Online Booking</p>
+
                 @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>*@
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>*@
                 <div class="navbar-collapse collapse d-flex flex-end">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 float-left">
                         <li class="nav-item">
                             <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="Customer" asp-action="Index">Home</a>
                         </li>
 
                     </ul>
-
-                    <div class="d-flex align-items-center justify-content-end">
+                    <div class="float-md-right">
                         <partial name="_LoginPartial" />
+
                     </div>
+
+
+
                 </div>
             </div>
         </nav>
@@ -43,10 +44,13 @@
             @RenderBody()
         </main>
     </div>
-    <br /><br /> <br /><br /><br /><br />
-    <footer class="border-top footer text-muted">
+    <br /><br /> <br /><br /><br /><br /><br /><br /> <br /><br /> <br /><br /><br /><br /><br /><br />
+    <footer class="border-top footer text-white bg-info">
         <div class="container">
-            &copy; 2022 - OnlineBookingApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white float-left">Register</a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white float-left" style="margin-left:15px">Login</a>
+
+            <p class="float-right">&copy; 2022 - GMTMotorsApplication </p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

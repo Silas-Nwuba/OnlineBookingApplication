@@ -17,8 +17,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
-  background-color:#eee;
+    margin: 0;
+    background-image: url('/Image/transport 1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 article,
 aside,
@@ -1077,11 +1080,14 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555555;
-  background-color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-image: url('/Image/bus 2.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 input,
 button,

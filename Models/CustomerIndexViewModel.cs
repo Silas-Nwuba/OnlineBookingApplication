@@ -24,7 +24,7 @@ namespace OnlineBookingApplication.Models
         public string FullName => FirstName +" "+ LastName;       
         [Required]
         [RegularExpression(@"^[1-9]{1}[0-9]{1}$",ErrorMessage = "incorrect input of Age")]
-        public int Age{ get; set; }
+        public string Age{ get; set; }
         [Required]
         public string State { get; set; }
         [Required(ErrorMessage ="Phone number field required")]
@@ -54,27 +54,6 @@ namespace OnlineBookingApplication.Models
         [Display(Name ="Photo")]
         [Required(ErrorMessage ="Photo Field is required")]
         public IFormFile ImageUrl { get; set; }
-        //public string Bus { get; set; } = "GUI Logistic";
-        //[Required(ErrorMessage ="Date field is required")]
-        //public DateTime Date { get; set; } = DateTime.Today;
-        //[Required(ErrorMessage ="Departure From field is required")]
-        //[Display(Name = "Departure From")]
-        //public string DepartureFrom { get; set; }
-        //[Required(ErrorMessage ="Arival To field is required")]
-        //[Display(Name = "Arival To")]
-        //public string ArivalTo { get; set; }
-        //[Required(ErrorMessage ="Ticket Type Field is required")]
-        //[Display(Name ="Ticket Type")]
-        //public TicketType TicketType { get; set; }
-        //[Required(ErrorMessage ="Seat no field is required")]
-        //[Display(Name ="Seat No")]
-        //public string SeatNo { get; set; }
-        //[Display(Name = "Special Request")]
-        //public SpecialRequest SpecialRequest { get; set; }
-        //[Display(Name = "Book For Other")]
-        //public BookForOther BookForOther { get; set; }
-        //[Required(ErrorMessage ="Payment Type field is required")]
-        //public Payment Payment { get; set; }
-        //public IEnumerable<PaymentRecord> paymentRecords { get; set; }
+       
     }
 }

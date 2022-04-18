@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjectEntity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineBookingApplication.Models
 {
@@ -11,19 +12,19 @@ namespace OnlineBookingApplication.Models
     {
         public int Id { get; set; }
         public Customer Customer { get; set; }
-        [Required]
         public string NIN { get; set; }
         [Required(ErrorMessage = "Date Field is required")]
         public DateTime Date { get; set; }
         [Required]
         public DateTime Dob { get; set; }
         public int CustomerId { get; set; }
-        [Display(Name = "full Name")]
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
-        [Required]
-        public int TicketId { get; set; } = 0001;
-        [Required(ErrorMessage = "Seat No Field is required")]
-        public int SeatNo { get; set; }
+        public string SeatNumber { get; set; }
+        public SeatNo SeatNo { get; set; }
+        [Display(Name = "Seat Number")]
+        public int SeatNoId { get; set; }
+
         [Required(ErrorMessage = "Departure From Field is required")]
         [Display(Name = "Departure From")]
         public string DepartureFrom { get; set; }
@@ -33,18 +34,17 @@ namespace OnlineBookingApplication.Models
         [Required]
         [Display(Name = "Ticket Type")]
         public TicketType TicketType { get; set; }
-        [Required]
         public string Bus { get; set; } = "GUI LOGISTIC";
         [Required]
         [Display(Name = "Special Request")]
         public SpecialRequest SpecialRequest { get; set; }
-        [Required]
+
         public Payment Payment { get; set; }
         [Required]
         [Display(Name = "Book For Other")]
         public BookForOther BookForOther { get; set; }
-        [Required]
-        public decimal TotalAmount { get; set; }
+        //[Required]
+        ////public decimal TotalAmount { get; set; }
     }
 }
 

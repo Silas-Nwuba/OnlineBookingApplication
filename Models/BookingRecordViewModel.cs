@@ -14,16 +14,17 @@ namespace OnlineBookingApplication.Models
         [Required]
         public string NIN { get; set; }
         [Required]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime Date { get; set; } = DateTime.Today;
         public DateTime Dob { get; set; }
         public int CustomerId { get; set; }
-        [Display(Name ="full Name")]
+        [Display(Name ="Full Name")]
         public string FullName { get; set; }
         [Required]
-        public int TicketId { get; set; } = 0001;
-        [Required]
+        public int TicketId { get; set; }
+        public SeatNo SeatNo { get; set; }
+        public string SeatNumber { get; set; }
         [Display(Name ="Seat No")]
-        public int SeatNo { get; set; }
+        public int SeatNoId { get; set; }
         [Required]
         [Display(Name = "Departure From")]
         public string DepartureFrom {get; set;}
@@ -34,7 +35,7 @@ namespace OnlineBookingApplication.Models
         [Display(Name ="Ticket Type")]
         public int TicketType { get; set; }
         [Required]
-        public string Bus { get; set; } = "GUI LOGISTIC";
+        public string Bus { get; set; } = "GMT Motors";
         [Required]
         [Display(Name = "Special Request")]
         public SpecialRequest SpecialRequest { get; set; }
