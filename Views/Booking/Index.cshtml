@@ -12,12 +12,13 @@
                     <li class="breadcrumb-item">Booking System</li>
                 </ol>
             </nav>
-            <br /><br />
+            <br />
             <h4>Booking Details</h4>
             <hr /><br />
             <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-summary="ModelOnly"></div>
                 <div class="form-row">
-                    <div style="display:none"class="form-group col-md-3">
+                    <div style="display:none" class="form-group col-md-3">
                         <input asp-for="CustomerId" class="form-control" readonly style="background-color: #ffffff75" />
 
                     </div>
@@ -45,7 +46,6 @@
                     </div>
                 </div>
                 <div class="form-row">
-
                     <div class="form-group col-md-1">
                         <label asp-for="SeatNoId"></label>
                     </div>
@@ -59,15 +59,23 @@
                         <label asp-for="SpecialRequest"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <select asp-for="SpecialRequest" asp-items="Html.GetEnumSelectList<ProjectEntity.SpecialRequest>()" class="form-control">
+                        <select asp-for="SpecialRequest" class="form-control">
+                            <option>Select..</option>
+                            <option>No</option>
+                            <option>Yes</option>
+
                         </select>
+                        <span asp-validation-for="SpecialRequest" class="text-danger"></span>
                     </div>
 
                     <div class="form-group col-md-1">
                         <label asp-for="BookForOther"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <select asp-for="BookForOther" asp-items="Html.GetEnumSelectList<ProjectEntity.BookForOther>()" class="form-control">
+                        <select asp-for="BookForOther" class="form-control">
+                            <option>Select..</option>
+                            <option>No</option>
+                            <option>Yes</option>
                         </select>
                         <span asp-validation-for="BookForOther" class="text-danger"></span>
                     </div>
@@ -79,7 +87,14 @@
                         <label asp-for="TicketType"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <select asp-for="TicketType" class="form-control" asp-items="Html.GetEnumSelectList<ProjectEntity.TicketType>()"></select>
+                        <select asp-for="TicketType" class="form-control">
+                            <option value="" disabled selected hidden>Select..</option>
+                            <option>Reqular</option>
+                            <option>Gold</option>
+                            <option>Silver</option>
+                            <option>Vip</option>
+
+                        </select>
                         <span asp-validation-for="TicketType" class="text-danger"></span>
                     </div>
 
@@ -87,8 +102,10 @@
                         <label asp-for="Payment"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <select asp-for="Payment" class="form-control" asp-items="Html.GetEnumSelectList<ProjectEntity.Payment>()"></select>
-                        <span asp-validation-for="Payment" class="text-danger"></span>
+                        <select asp-for="Payment" class="form-control">
+                            <option>Transfer</option>
+                        </select>
+
                     </div>
                     <div class="form-group col-md-1">
                         <label asp-for="Date"></label>
@@ -97,53 +114,38 @@
                         <input asp-for="Date" class="form-control" />
                         <span asp-validation-for="Date" class="text-danger"></span>
                     </div>
-
                 </div>
                 <div class="form-group">
                     <div>
                         <label asp-for="DepartureFrom"></label>
                     </div>
-                    <select asp-for="DepartureFrom" class="form-control">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option>Select Terminal</option>
-                        <option value="5ead43347809643ac0d7687e">Aba,  Asa Road Highway</option>
-                        <option value="5ead4370ab6fff3ac03f313b">Aba,  Asa Road Local</option>
-                        <option value="5c51bc91860d8b5ac0000002">Aba, Factory Road</option>
-                        <option value="5c51bc91860d8b5ac0000011">Abakaliki, 25A Afikpo Rd. Highway</option>
-                        <option value="5c51bc91860d8b5ac0000017">Abuja, Gwagwalada</option>
-                        <option value="5c51bc91860d8b5ac0000020">Abuja, Kubwa</option>
-                        <option value="5c51bc91860d8b5ac0000035">Abuja, Mararaba</option>
-                        <option value="5c51bc91860d8b5ac0000021">Abuja, Utako</option>
-                        <option value="5c51bc91860d8b5ac0000019">Abuja, Zuba</option>
-                        <option value="5c51bc91860d8b5ac0000010">Afikpo, Ngodo Road</option>
-                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
-                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
-                        <option value="5c51bc91860d8b5ac0000053">Asaba, Head Bridge</option>
-                        <option value="5c51bc91860d8b5ac0000007">Awka, Uni-Zik Junction Opposite</option>
-                        <option value="5c51bc91860d8b5ac0000012">Benin,119 Akpakpava Road, 2nd Junction</option>
-                        <option value="5c51bc91860d8b5ac0000008">Calabar, Bedwell Street</option>
-                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
-                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
-                        <option value="5ead44ec4ac7923ac0a9b8fe">Calabar, Ettagbo</option>
-                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
-                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
-                        <option value="5c51bc91860d8b5ac0000014">Enugu, Garriki</option>
-                        <option value="5e70e4281bc1506ac0706228">Enugu, Ogbete</option>
-                        <option value="5c51bc91860d8b5ac0000038">Ibadan, Sango Road</option>
-                        <option value="5c51bc91860d8b5ac0000041">Lagos, Ajah</option>
-                        <option value="5c51bc91860d8b5ac0000031">Lagos, Ajegunle</option>
-                        <option value="5c51bc91860d8b5ac0000029">Lagos, Demorose</option>
-                        <option value="5c51bc91860d8b5ac0000034">Lagos, Ejigbo</option>
-                        <option value="5c51bc91860d8b5ac0000032">Lagos, Ikorodu</option>
-                        <option value="5c51bc91860d8b5ac0000049">Lagos, Jibowu</option>
-                        <option value="5c51bc91860d8b5ac0000028">Lagos, Ojuelegba</option>
-                        <option value="5c51bc91860d8b5ac0000030">Lagos, Orile</option>
-                        <option value="5c51bc91860d8b5ac0000046">Minna, David Mark Road</option>
-                        <option value="5ead47fc4ac7923ac0a9b900">Yenagoa, Ekeki</option>
-                        <option value="5c51bc91860d8b5ac0000044">Yenagoa, Okutukutu</option>
-                        <option value="5c51bc91860d8b5ac0000009">Warri, Effurum, Uvwie-Sapele Road</option>
-                        <option value="5e6f9b622091d66ac051d226">Sango Ota, 54 Idiroko Road</option>
-                        <option value="5c51bc91860d8b5ac0000048">Nnewi, Nwafor Orizu Roundabout</option>
+                    <select asp-for="DepartureFrom" class="form-control" id="depart" onchange="myDepart(this.value)">
+                        <option value="" disabled selected hidden>Select Terminal</option>
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        <option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                        <option value="Aba, Factory Road">Aba, Factory Road</option>
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+
+
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        <option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                        <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                        <option value="Abuja, Utako">Abuja, Utako</option>
+                        <option value="Abuja, Zuba">Abuja, Zuba</option>
+
+                        <option value="Enugu, Abakpa</">Enugu, Abakpa</option>
+                        <option value="Enugu, Emene">Enugu, Emene</option>
+                        <option value="Enugu, Garriki">Enugu, Garriki</option>
+                        <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                        <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                        <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        <option value="Awka,Aroma junction">Awka,Aroma junction</option>
+
 
                     </select>
                     <span asp-validation-for="DepartureFrom" class="text-danger"></span>
@@ -152,73 +154,60 @@
                     <div>
                         <label asp-for="ArivalTo"></label>
                     </div>
-                    <select asp-for="ArivalTo" class="form-control">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option>Select Destination</option>
-                        <option value="5c51bc91860d8b5ac0000011">Abakaliki, 25A Afikpo Rd. Highway</option>
-                        <option value="5c51bc91860d8b5ac0000017">Abuja, Gwagwalada</option>
-                        <option value="5c51bc91860d8b5ac0000020">Abuja, Kubwa</option>
-                        <option value="5c51bc91860d8b5ac0000035">Abuja, Mararaba</option>
-                        <option value="5c51bc91860d8b5ac0000021">Abuja, Utako</option>
-                        <option value="5c51bc91860d8b5ac0000019">Abuja, Zuba</option>
-                        <option value="5c51bc91860d8b5ac0000010">Afikpo, Ngodo Road</option>
-                        <option value="5c51bc91860d8b5ac0000037">Akure, 141 Oyemekun Road</option>
-                        <option value="5c51bc91860d8b5ac0000053">Asaba, Head Bridge</option>
-                        <option value="5c51bc91860d8b5ac0000007">Awka, Uni-Zik Junction Opposite</option>
-                        <option value="5c51bc91860d8b5ac0000012">Benin,119 Akpakpava Road, 2nd Junction</option>
-                        <option value="5c51bc91860d8b5ac0000008">Calabar, Bedwell Street</option>
-                        <option value="5ead44ec4ac7923ac0a9b8fe">Calabar, Ettagbo</option>
-                        <option value="5c51bc91860d8b5ac0000013">Enugu, Abakpa</option>
-                        <option value="5c51bc91860d8b5ac0000001">Enugu, Emene</option>
-                        <option value="5c51bc91860d8b5ac0000014">Enugu, Garriki</option>
-                        <option value="5e70e4281bc1506ac0706228">Enugu, Ogbete</option>
-                        <option value="5c51bc91860d8b5ac0000015">Enugu, Okpara Avenue</option>
-                        <option value="5c51bc91860d8b5ac0000016">Enugu-Ezike, Ogurute </option>
-                        <option value="5c51bc91860d8b5ac0000038">Ibadan, Sango Road</option>
-                        <option value="5c51bc91860d8b5ac0000054">Ikom, Four Corner</option>
-                        <option value="5c51bc91860d8b5ac0000026">Ilorin, Old Jebba Road</option>
-                        <option value="5c51bc91860d8b5ac0000052">Jos, Terminal market</option>
-                        <option value="5c51bc91860d8b5ac0000055">Kaduna, Command Junction Traffic</option>
-                        <option value="5c51bc91860d8b5ac0000041">Lagos, Ajah</option>
-                        <option value="5c51bc91860d8b5ac0000031">Lagos, Ajegunle</option>
-                        <option value="5c51bc91860d8b5ac0000029">Lagos, Demorose</option>
-                        <option value="5c51bc91860d8b5ac0000034">Lagos, Ejigbo</option>
-                        <option value="5c51bc91860d8b5ac0000032">Lagos, Ikorodu</option>
-                        <option value="5c51bc91860d8b5ac0000049">Lagos, Jibowu</option>
-                        <option value="5c51bc91860d8b5ac0000027">Lagos, Mazamaza</option>
-                        <option value="5c51bc91860d8b5ac0000051">Lagos, Ojota</option>
-                        <option value="5c51bc91860d8b5ac0000028">Lagos, Ojuelegba</option>
-                        <option value="5c51bc91860d8b5ac0000030">Lagos, Orile</option>
-                        <option value="5c51bc91860d8b5ac0000046">Minna, David Mark Road</option>
-                        <option value="5c51bc91860d8b5ac0000048">Nnewi, Nwafor Orizu Roundabout</option>
-                        <option value="5c51bc91860d8b5ac0000040">Nsukka, Enugu Road</option>
-                        <option value="5c51bc91860d8b5ac0000043">Obollo-Afor, Markurdi  Road</option>
-                        <option value="5c51bc91860d8b5ac0000006">Onitsha, Oguta</option>
-                        <option value="5c51bc91860d8b5ac0000005">Onitsha, Owerri Road</option>
-                        <option value="5ead44477809643ac0d76880">Owerri, Control</option>
-                        <option value="5c51bc91860d8b5ac0000023">Owerri, Orji</option>
-                        <option value="5e6f983e2091d66ac051d225">Port Harcourt, OIl Mill</option>
-                        <option value="605ef32583151709365abd8d">Port Harcourt, Rumuodomaya</option>
-                        <option value="5e6f9b622091d66ac051d226">Sango Ota, 54 Idiroko Road</option>
-                        <option value="5c51bc91860d8b5ac0000003">Umuahia, Crowther Street</option>
-                        <option value="5c51bc91860d8b5ac0000004">Uyo, Itam-Itam</option>
-                        <option value="5c51bc91860d8b5ac0000009">Warri, Effurum, Uvwie-Sapele Road</option>
-                        <option value="5ead47fc4ac7923ac0a9b900">Yenagoa, Ekeki</option>
-                        <option value="5c51bc91860d8b5ac0000044">Yenagoa, Okutukutu</option>
-                    </select>
+                    <select asp-for="ArivalTo" class="form-control" id="Arival" disabled>
+                        <option value="" disabled selected hidden>Select Destination</option>
 
-            
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        <option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                        <option value="Aba, Factory Road">Aba, Factory Road</option>
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+
+
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        <option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                        <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                        <option value="Abuja, Utako">Abuja, Utako</option>
+                        <option value="Abuja, Zuba">Abuja, Zuba</option>
+
+                        <option value="Enugu, Abakpa">Enugu, Abakpa</option>
+                        <option value="Enugu, Emene">Enugu, Emene</option>
+                        <option value="Enugu, Garriki">Enugu, Garriki</option>
+                        <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                        <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                        <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>
+
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        <option value="Awka,Aroma junction">Awka,Aroma junction</option>
+
+
+                    </select>
                     <span asp-validation-for="ArivalTo" class="text-danger"></span>
                 </div><br /><br />
                 <div class="form-group">
-                    <button type="submit" class="btn btn-rounded btn btn-primary float-left">Submit</button>
-                    <a class="btn btn-rounded btn btn-success float-right" asp-action="Index" asp-controller="Customer"><i class="fa-solid fa-backward"><l style="margin-left:7px">back</l></i></a>
+                    <button type="submit" style="border: 1px solid #54b4eb; width: 90px; background-color: #54b4eb;float:left;padding:10px;color:white;font-weight:bold;border-radius:5px;outline:none">Submit</button>
+                    <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="Home">Back</a>
                 </div>
 
             </form>
             <br /><br />
         </div>
     </div>
-
-
 </div>
+@section Scripts{
+    <script>
+        function myDepart(depart) {
+            if (myDepart != "") {
+                document.getElementById("Arival").disabled = false;
+                $("#Arival option[value='" + depart + "']").hide();
+                $("#Arival option[value !='" + depart + "']").show();
+            }
+
+        };
+    </script>
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

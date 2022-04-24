@@ -35,7 +35,7 @@ namespace OnlineBookingApplication.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
-        public Gender Gender { get; set; }
+        public Gender Gender { get; set; } 
         [Required]
         [StringLength(100)]
         [RegularExpression(@"^[A-Z][a-zA-Z""/s-]*$", ErrorMessage = "Invalid input Format")]

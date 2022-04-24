@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Booking";
 }
-<div class="container">
-    <div class="card">
+<div class="container-fluid">
+    <div class="card col-md-7 col-md-offset-3"style="border-radius:5px">
         <div class="card-body" style="background-color:white">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -12,94 +12,92 @@
                     <li class="breadcrumb-item">GMT Reciept</li>
                 </ol>
             </nav>
-            <br /><br />
-            <h4>Customer Details</h4>
+            <br />
+            <div class="details">
+                <div>
+                    <h4>Transaction Details</h4>
+                </div>
+
+            </div>
             <hr />
-            <form method="post" enctype="multipart/form-data" asp-action="Create">
-               
-                <div class="row">
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">Full Name : @Model.FullName</p>
-
-                    </div>
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">Seat No : @Model.SeatNo</p>
-
-                    </div>
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">NIN : @Model.NiN</p>
-
-                    </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p3 class="font-weight-bold">Travelling From </p3>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">Departure From : @Model.DepartureFrom State</p>
-
-                    </div>
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">Arival To: @Model.ArivalTo State</p>
-
-                    </div>
-                    <div class="col-md-4">
-                        <p class="font-weight-normal">Date : @Model.Date</p>
-
-                    </div>
+                <div class="col-md-4">
+                    <p3 class="font-weight-normal">@Model.DepatureFrom</p3> =>
+                    <p3 class="font-weight-normal">@Model.ArivalTo</p3>
                 </div>
-                <hr />
-                <h4>Payment Details</h4><br />
-                <div class="col-md-12 table-responsive-md">
-                    <table class="table table-striped">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Special Request</th>
-                                <th>Book For Other</th>
-                                <th>Ticket Type</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>@Model.Special</td>
-                                <td></td>
-                                <td></td>
-                                <td>@Model.SpecialRequest.ToString("C")</td>
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>@Model.Book</td>
-                                <td></td>
-                                <td>@Model.BookForOther.ToString("C")</td>
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>@Model.Ticket</td>
-                                <td>@Model.TicketType.ToString("C")</td>
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="table-dark"><b>Total Amount</b></td>
-                                <td class="table-dark"><b>@Model.TotalAmount.ToString("C")</b></td>
-
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-4">
+                    <h4>@Model.TravelPrice.ToString("c")</h4>
                 </div>
-                <br /><br /><br />
-                <button type="submit" class="btn btn-primary"><l style="outline:none">Proceed</l></button>
-                <br />
-                <br /><br />
-            </form>
-        </div>
+            </div>
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-4">
+                    <p3 class="font-weight-normal">Special Request</p3>
+                </div>
+                <div class="col-md-4">
+                    <p3 class="font-weight-normal">@Model.SpecialRequest</p3>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="font-weight-normal" style="font-size:18px">@Model.SpecialAmount.ToString("c")</h4>
+                </div>
+            </div>
+            <div></div>
 
+            <div class="row">
+                <div class="col-md-4">
+                    <p3> Book For Other</p3>
+                </div>
+                <div class="col-md-4">
+                    <p3>@Model.BookFother</p3>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="font-weight-normal" style="font-size:18px">@Model.BookAmount.ToString("c")</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p3>Ticket Type</p3>
+                </div>
+                <div class="col-md-4">
+                    <p3>@Model.TicketType</p3>
+                </div>
+                <div class="col-md-4">
+                    <h4 style="font-size:18px">@Model.TicketAmount.ToString("c")</h4>
+                </div>
+            </div>
+            <div class="row" style="display:flex;justify-content:space-around">
+                <div class="col-md-8">
+                    <p3><b>Total Amount</b></p3>
+                </div>
+                <div class="col-md-4">
+                    <h4 style="font-size:18px">@Model.TotalAmount.ToString("c")</h4>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <a id="submit" style="border: 1px solid darkred; width: 90px; background-color: darkred; float: left; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center; text-decoration: none " asp-action="Index" asp-controller="Home" onclick="myFunction()">Cancel</a>
+                <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none "asp-action="Index"asp-controller="CardPayment">Proceed</a>
+            </div>
+            <br /><br />
+
+        </div><br />
 
     </div>
-
-
 </div>
+@section Scripts{
+    <script>
+        function myFunction() {
+            document.getElementsByClassName("submit")
+            {
+                confirm("Are you sure you want to cancel");
+            }
+        }
+    </script>
+}
+
+
+
 
 

@@ -18,11 +18,9 @@ html {
 }
 body {
     margin: 0;
-    background-image: url('/Image/transport 1.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #e5e5e5;
 }
+
 article,
 aside,
 details,
@@ -1084,9 +1082,10 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #555555;
-    background-image: url('/Image/bus 2.webp');
+    background-color: #f5ecec;
     background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('/Image/partnerBg-c3f6a0f1f8de84f5c854d49e6e0eeb76.png');
+    background-repeat:no-repeat;
     background-size: cover;
 }
 input,
@@ -1173,19 +1172,25 @@ hr {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6,
 .h1,
 .h2,
 .h3,
-.h4,
 .h5,
 .h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.2;
-  color: #317eac;
+  color: black;
+  font-size:22px;
+}
+h4,
+.h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size:30px;
+    color:black;
 }
 h1 small,
 h2 small,
@@ -2595,15 +2600,15 @@ output {
   background-color: transparent;
   border: 0;
 }
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #ede4e457;
+        opacity: 1;
+    }
 .form-control[disabled],
-.form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: #eeeeee;
-  opacity: 1;
-}
-.form-control[disabled],
-fieldset[disabled] .form-control {
-  cursor: not-allowed;
+ cursor:pointer;
 }
 textarea.form-control {
   height: auto;

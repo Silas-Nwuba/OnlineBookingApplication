@@ -102,46 +102,20 @@
                         <label asp-for="DepartureFrom"></label>
                     </div>
                     <select asp-for="DepartureFrom" class="form-control">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option>Abia</option>
-                        <option>Adamawa</option>
-                        <option>Akwa Ibom</option>
-                        <option>Anambra</option>
-                        <option>Bauchi</option>
-                        <option>Bayelsa</option>
-                        <option>Benue</option>
-                        <option>Borno</option>
-                        <option>Cross River</option>
-                        <option>Delta</option>
-                        <option>Ebonyi</option>
-                        <option>Edo</option>
-                        <option>Ekiti</option>
-                        <option>Enugu</option>
-                        <option>Gombe</option>
-                        <option>Imo</option>
-                        <option>Jigawa</option>
-                        <option>Kaduna</option>
-                        <option> Kano</option>
-                        <option> Katsina</option>
-                        <option> Kebbi</option>
-                        <option> Kogi</option>
-                        <option> Kwara</option>
-                        <option> Lagos</option>
-                        <option> Nasarawa</option>
-                        <option>Niger</option>
-                        <option>Ogun</option>
-                        <option>Ondo</option>
-                        <option>Osun</option>
-                        <option>Oyo</option>
-                        <option>Plateau</option>
-                        <option>Rivers</option>
-                        <option>Sokoto</option>
-                        <option>Taraba</option>
-                        <option>Yobe</option>
-                        <option>Zamfara</option>
-                        <option>Abia</option>
-                        <option>Fct</option>
-
+                        <option value="" disabled selected hidden> Select Terminal</option>
+                        <option>Aba,  Asa Road Highway</option>
+                        <option>Aba,  Asa Road Local</option>
+                        <option>Aba, Factory Road</option>
+                        <option>Abakaliki, 25A Afikpo Rd. Highway</option>
+                        <option>Abuja, Gwagwalada</option>
+                        <option>Abuja, Kubwa</option>
+                        <option>Abuja, Mararaba</option>
+                        <option>Abuja, Utako</option>
+                        <option>Abuja, Zuba</option>
+                        <option>Afikpo, Ngodo Road</option>
+                        <option>Akure, 141 Oyemekun Road</option>
+                        <option>Akure, 141 Oyemekun Road</option>
+                        <option>Asaba, Head Bridge</option>
                     </select>
                     <span asp-validation-for="DepartureFrom" class="text-danger"></span>
                 </div>
@@ -150,48 +124,20 @@
                         <label asp-for="ArivalTo"></label>
                     </div>
                     <select asp-for="ArivalTo" class="form-control">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option>Abia</option>
-                        <option>Adamawa</option>
-                        <option>Akwa Ibom</option>
-                        <option>Anambra</option>
-                        <option>Bauchi</option>
-                        <option>Bayelsa</option>
-                        <option>Benue</option>
-                        <option>Borno</option>
-                        <option>Cross River</option>
-                        <option>Delta</option>
-                        <option>Ebonyi</option>
-                        <option>Edo</option>
-                        <option>Ekiti</option>
-                        <option>Enugu</option>
-                        <option>Gombe</option>
-                        <option>Imo</option>
-                        <option>Jigawa</option>
-                        <option>Kaduna</option>
-                        <option> Kano</option>
-                        <option> Katsina</option>
-                        <option> Kebbi</option>
-                        <option> Kogi</option>
-                        <option> Kwara</option>
-                        <option> Lagos</option>
-                        <option> Nasarawa</option>
-                        <option>Niger</option>
-                        <option>Ogun</option>
-                        <option>Ondo</option>
-                        <option>Osun</option>
-                        <option>Oyo</option>
-                        <option>Plateau</option>
-                        <option>Rivers</option>
-                        <option>Sokoto</option>
-                        <option>Taraba</option>
-                        <option>Yobe</option>
-                        <option>Zamfara</option>
-                        <option>Abia</option>
-                        <option>Fct</option>
+                        <option value="" disabled selected hidden>Select Destination</option>
+                        <option>Abakaliki, 25A Afikpo Rd. Highway</option>
+                        <option>Abuja, Gwagwalada</option>
+                        <option>Abuja, Kubwa</option>
+                        <option>Abuja, Mararaba</option>
+                        <option>Abuja, Utako</option>
+                        <option>Abuja, Zuba</option>
+                        <option>Afikpo, Ngodo Road</option>
+                        <option>Akure, 141 Oyemekun Road</option>
+
 
                     </select>
                     <span asp-validation-for="ArivalTo" class="text-danger"></span>
+                   
                 </div><br /><br />
                 <div class="form-group">
                     <button type="submit"class="btn btn-rounded btn btn-primary float-left">Submit</button>
@@ -207,7 +153,7 @@
 
 </div>
 @section Scripts{
-  @{ await Html.RenderPartialAsync("_LoginPartial"); }
+  @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 <script>
     $(document).ready(function () {
         $("form").on("click", "submit", function () {

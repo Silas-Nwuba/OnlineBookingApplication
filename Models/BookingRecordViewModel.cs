@@ -23,12 +23,13 @@ namespace OnlineBookingApplication.Models
         public int TicketId { get; set; }
         public SeatNo SeatNo { get; set; }
         public string SeatNumber { get; set; }
+        [Required(ErrorMessage ="Seat No field is required")]
         [Display(Name ="Seat No")]
         public int SeatNoId { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Departure From field is required")]
         [Display(Name = "Departure From")]
         public string DepartureFrom {get; set;}
-        [Required]
+        [Required(ErrorMessage ="Arival To field is required")]
         [Display(Name = "Arival To")]
         public string ArivalTo { get; set; }
         [Required]
@@ -45,6 +46,16 @@ namespace OnlineBookingApplication.Models
         [Display(Name = "Book For Other")]
         public BookForOther BookForOther { get; set; }
         [Required]
+        public decimal Price { get; set; }
+        [Required]
+        public decimal TranvelPrice { get; set; }
+        [Required]
+        public decimal SpecialAmount { get; set; }
+        [Required]
+        public decimal BookAmount { get; set; }
+        [Required]
         public decimal TotalAmount { get; set; }
+        
+      
     }
 }

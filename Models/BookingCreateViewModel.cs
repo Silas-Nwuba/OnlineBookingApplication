@@ -23,8 +23,8 @@ namespace OnlineBookingApplication.Models
         public string SeatNumber { get; set; }
         public SeatNo SeatNo { get; set; }
         [Display(Name = "Seat Number")]
+        [Required(ErrorMessage ="Seat No field is required")]
         public int SeatNoId { get; set; }
-
         [Required(ErrorMessage = "Departure From Field is required")]
         [Display(Name = "Departure From")]
         public string DepartureFrom { get; set; }
@@ -33,18 +33,19 @@ namespace OnlineBookingApplication.Models
         public string ArivalTo { get; set; }
         [Required]
         [Display(Name = "Ticket Type")]
-        public TicketType TicketType { get; set; }
+        public string TicketType { get; set; }
         public string Bus { get; set; } = "GUI LOGISTIC";
         [Required]
         [Display(Name = "Special Request")]
-        public SpecialRequest SpecialRequest { get; set; }
+        public string SpecialRequest { get; set; }
 
-        public Payment Payment { get; set; }
+        public string Payment { get; set; }
         [Required]
         [Display(Name = "Book For Other")]
-        public BookForOther BookForOther { get; set; }
-        //[Required]
-        ////public decimal TotalAmount { get; set; }
+        public string BookForOther { get; set; }
+        [Display(Name ="Travel Price")]
+        public decimal Price { get; set; }
+       public decimal TotalAmount { get; set;}
     }
 }
 
