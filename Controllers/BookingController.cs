@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using ProjectServices;
 using ProjectEntity;
 using OnlineBookingApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineBookingApplication.Controllers
 {
+    [Authorize]
     public class BookingController : Controller
     {
         private readonly IBookingRecord _booking;

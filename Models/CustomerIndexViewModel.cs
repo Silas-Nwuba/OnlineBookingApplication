@@ -7,7 +7,7 @@ using System.Text;
 
 namespace OnlineBookingApplication.Models
 {
-    public class CustomerIndexViewModel
+    public class CustomerIndexViewModels
     {
         public int Id { get; set; }
         [Required(ErrorMessage ="First Name field is required")]
@@ -22,7 +22,7 @@ namespace OnlineBookingApplication.Models
         public string LastName { get; set; }
         [StringLength(100)]
         public string FullName => FirstName +" "+ LastName;       
-        [Required]
+
         [RegularExpression(@"^[1-9]{1}[0-9]{1}$",ErrorMessage = "incorrect input of Age")]
         public string Age{ get; set; }
         [Required]
@@ -35,14 +35,12 @@ namespace OnlineBookingApplication.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
-        public Gender Gender { get; set; } 
+        public string Gender { get; set; } 
         [Required]
         [StringLength(100)]
         [RegularExpression(@"^[A-Z][a-zA-Z""/s-]*$", ErrorMessage = "Invalid input Format")]
         [Display(Name ="Next of kin Name")]
         public string NextOfKin { get; set; }
-        [Required]
-        public string NextOfKinGender { get; set; }
         [Required(ErrorMessage = "Phone number field required")]
         [RegularExpression(@"^[0-9]{11}$", ErrorMessage = "phone number is invalid")]
         [Display(Name ="Next of kin Phone No")]

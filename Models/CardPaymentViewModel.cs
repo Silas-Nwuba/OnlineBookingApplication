@@ -14,7 +14,8 @@ namespace OnlineBookingApplication.Models
         [Required]
         public int BookingRecordId { get; set; }
         [Required]
-        [RegularExpression(@"^[A-Z]{3,50}[a-zA-z\s]*$", ErrorMessage ="Name Should be Aleast more than 3 character")]
+        [RegularExpression(@"^[a-zA-z\s-]*$", ErrorMessage ="Invalid input of Card Name")]
+        [MinLength(3,ErrorMessage ="Card Name Should Atleast more 3 character")]
         [Display(Name ="Card Name")]
         public string CardName { get; set; }
         [Required]
@@ -23,10 +24,13 @@ namespace OnlineBookingApplication.Models
         public string CardNumber { get; set; }
         [Required]
         [Display(Name = "Expire Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/YY}",ApplyFormatInEditMode =true)]
         public DateTime ExpireDate { get; set; }
         [Required]
-        [RegularExpression(@"^[1-9]{3,3}$",ErrorMessage ="Security code should be three digit Number")]
+        [RegularExpression(@"^[1-9]{3}$",ErrorMessage ="Security code should be three digit Number")]
         [Display(Name = "Security Code")]
+        [DataType(DataType.Password)]
         public string SecurityCode { get; set; }
     }
 }

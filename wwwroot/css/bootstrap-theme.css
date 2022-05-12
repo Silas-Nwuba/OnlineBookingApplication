@@ -190,7 +190,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+  padding: 6px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -2278,7 +2278,11 @@ caption {
   text-align: left;
 }
 th {
-  text-align: left;
+
+    text-align: left;
+}
+td, th {
+    padding: 12px;
 }
 .table {
   width: 100%;

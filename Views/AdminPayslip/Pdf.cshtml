@@ -1,0 +1,150 @@
+﻿@model PaySlipViewModel
+@{
+    ViewBag.Title = "PaySlip";
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="card" style="background:white">
+                <div class="card-body">
+                    <div class=" mt-5">
+                        <div style="float:right;position:relative;bottom:40px;left:25px">
+                            <img class="img-responsive" src="~/Image/logo capture.PNG" style="width:170px;height:120px" />
+                            <h5 style="font-weight:500;padding:5px">Peace Mass Motors Transit </h5>
+
+                        </div>
+                    </div>
+                    <br />
+                    <br /><br /><br /><br /> <br />
+
+                    <h4 style="margin-left:48px">Customer Information</h4>
+                    <hr />
+
+                    <div class="row" style="margin-left:40px">
+                        <div class="col-xs-3">
+                            <p class="font-weight-normal"><l class="text-info">Customer Name</l> : @Model.FullName </p>
+                        </div>
+                        <div class="col-xs-3">
+                            <p class="font-weight-normal"><l class="text-info">Gender</l>: @Model.Gender</p>
+
+                        </div>
+                        <div class="col-xs-3">
+                            <p class="font-weight-normal"><l class="text-info">Phone Number</l>: @Model.Phone </p>
+                        </div>
+                        <div class="col-xs-3">
+
+                            <p class="font-weight-normal"><l class="text-info">State</l>: @Model.State </p>
+
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <h4 style="margin-left:48px">Booking Details</h4>
+                    <hr />
+
+                    <div class="row" style="margin-left:40px">
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Departure From</l> : @Model.TravelLoction</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Arival To</l> : @Model.TravelArival</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Booking For Other</l> : @Model.BookForOther</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:40px">
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Ticket Type</l>: @Model.TicketType</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Special Request</l> : @Model.SpecialRequest</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="font-weight-normal"><l class="text-info">Seat No</l> : @Model.SeatNoId</p>
+                        </div>
+
+                    </div>
+                    <hr />
+
+                    <h4 class="float-left" style="margin-left:40px">Payment Details</h4><br />
+                    <h5 class="float-right" style="margin-right:45px">Status:<l style="color:darkgreen">Verified</l></h5>
+                    <br /><br />
+                    <div class="row">
+                        <div class="col-md-12 table-responsive-md" style="padding-left:43px">
+                            <table class="table-striped" style="border-spacing:5px">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th style="width:92%;text-align:left;color:white;padding:10px;font-size:16px">Description</th>
+                                        <th style="width: 92%;color: white; padding: 10px; font-size: 16px">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="mb-5">
+                                    <tr>
+                                        <td style="padding:8px">
+                                            <p class="font-weight-normal"><l class="text-info">Travelling Price
+                                        </td>
+
+                                        <td style="padding:8px">
+                                            <span> ₦ @Model.Price.ToString("f")</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:8px">
+                                            <p class="font-weight-normal"><l class="text-info">Booking For Other
+                                        </td>
+
+                                        <td style="padding:8px">
+                                            <span>₦ @Model.BookAmount.ToString("f")</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:8px">
+                                            <p class="font-weight-normal"><l class="text-info">Special Request
+                                        </td>
+
+                                        <td style="padding:8px">
+                                            <span>₦ @Model.SpecialAmount.ToString("f")</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:8px">
+                                            <p class="font-weight-normal"><l class="text-info">Ticket Type
+                                        </td>
+
+                                        <td style="padding:8px">
+                                            <span> ₦ @Model.TicketAmount.ToString("f")</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-dark" style="padding:15px">
+                                        <td style="padding:8px">
+                                            <p class="font-weight-normal" style="color: black; font-size: 18px">Total
+                                        </td>
+
+                                        <td style="padding:8px">
+                                            <span style="color:black">₦ @Model.TotalAmount.ToString("f")</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <br /><br />
+                    <div style="text-align:center">
+                        <h4>Note</h4>
+                        <p>Transaction has been submitted successfull kindly print your reciept because it will required by PMT officials before entering the bus</p>
+                        <p>Thanks</p>
+                    </div>
+                    <br />
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

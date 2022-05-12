@@ -34,17 +34,17 @@ namespace OnlineBookingApplication.Models
         public string ArivalTo { get; set; }
         [Required]
         [Display(Name ="Ticket Type")]
-        public int TicketType { get; set; }
+        public string TicketType { get; set; }
         [Required]
-        public string Bus { get; set; } = "GMT Motors";
+        public string Bus { get; set; } = "Peace Mass Motors";
         [Required]
         [Display(Name = "Special Request")]
-        public SpecialRequest SpecialRequest { get; set; }
+        public string SpecialRequest { get; set; }
         [Required]
-        public Payment Payment { get; set; }
+        public string Payment { get; set; }
         [Required]
         [Display(Name = "Book For Other")]
-        public BookForOther BookForOther { get; set; }
+        public string BookForOther { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]

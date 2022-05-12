@@ -1,0 +1,61 @@
+﻿@model CardPaymentViewModel
+@{
+    ViewBag.Title = "Admin";
+}
+<div class="container">
+
+    <div class="card" style="border-radius:5px">
+        <div class="card-body" style="background-color:white;border-radius:4px">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Admin Panel</li>
+                    <li class="breadcrumb-item">Booking System</li>
+                    <li class="breadcrumb-item">Delete booking</li>
+                </ol>
+            </nav>
+            <br />
+            <form method="post" enctype="multipart/form-data" asp-action="DeleteBook" asp-route-id="@Model.Id">
+                <div class="form-group">
+                    <p1 class="font-weight-bold text-danger mb-4 float-left">Are you sure you want to delete this Payment</p1>
+                    <p style="border: 1px solid #1d9ce5; background-color: #1d9ce5; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center ">Delete:@Model.Id</p>
+                </div>
+                <table class="table-striped table-responsive-md col-md-12">
+                    <thead style="color: white;background-color: #04519b">
+                        <tr>
+                            <th>BookId</th>
+                            <th>Card Number</th>
+                            <th>Card Name</th>
+                            <th>Expire Date</th>
+                            <th> Security Code</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td><p>PMT @Model.Id</p></td>
+                            <td>@Model.CardNumber</td>
+                            <td>@Model.CardName</td>
+                            <td>@Model.ExpireDate</td>
+                            <td>@Model.SecurityCode</td>
+                            <td style="color:green">Payed</td>
+                            <td>
+                                <button type="submit" class="btn btn-success" style="color:white;outline:none">Yes</button>
+                                <a class="btn btn-danger" style="outline:none;color:white" asp-action="DeleteBook" asp-controller="AdminPay">No</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </form><br />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

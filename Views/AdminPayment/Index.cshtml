@@ -1,0 +1,63 @@
+﻿@model CardPaymentViewModel
+@{
+    ViewBag.Title = "Card";
+}
+<div class="container">
+    <div class="card col-md-5 col-md-offset-3" style="border-radius:5px">
+        <div class="card-body" style="background-color:white">
+            <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">GMT Motors</li>
+                    <li class="breadcrumb-item">Payment Details</li>
+                </ul>
+            </nav>
+            <br />
+            <div>
+                <h4>Credit Card Details</h4>
+            </div>
+            <div>
+                <img src="~/Image/card.jpg" style="width:100%" />
+            </div><br />
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <input style="display:none" asp-for="BookingRecordId" placeholder="5432 4845 4890 5018" class="form-control" />
+                    <div>
+                        <label asp-for="CardNumber"></label>
+                    </div>
+                    <input asp-for="CardNumber" placeholder="5432 4845 4890 5018" class="form-control" />
+                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label asp-for="CardName"></label>
+                    </div>
+                    <input asp-for="CardName" placeholder="Silas Nwuba" class="form-control" />
+                    <span asp-validation-for="CardName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label asp-for="ExpireDate"></label>
+                    </div>
+                    <input asp-for="ExpireDate" type="date" class="form-control" asp-format="@Model.ExpireDate.ToString("mm/yy")" />
+                    <span asp-validation-for="ExpireDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label asp-for="SecurityCode"></label>
+                    </div>
+                    <input asp-for="SecurityCode" type="password" placeholder="123" class="form-control" />
+                    <span asp-validation-for="SecurityCode" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" style="border: 1px solid #2fa4e7; width: 100%; background-color: #2fa4e7; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none ">Confirm Payment</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

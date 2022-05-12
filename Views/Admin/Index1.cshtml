@@ -1,0 +1,93 @@
+﻿@model Pagination<OnlineBookingApplication.Models.AdminModel.ApiCustomerIndexViewModel>
+@{
+    ViewBag.Title = "Admin";
+}
+<div class="container">
+    <div class="card" style="background-color:white;border-radius:5px;width:100%;padding:30px">
+        <div class="card-body" style="width:100%">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Admin Panel</li>
+                    <li class="float-right">Email:Admin@gmail.com</li>
+                </ol>
+            </nav>
+            <div class="form-group">
+                <a style="border: 1px solid #1d9ce5; background-color: #1d9ce5; float: left; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center; text-decoration: none " asp-action="GetAction" asp-controller="Admin">New Customer</a>
+                <p style="border: 1px solid #1d9ce5; background-color: #1d9ce5; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center ">Total : @Model.Count()</p>
+            </div>
+            <br /><br />
+            <hr />
+            <br />
+            <table class="table-striped table-responsive-md col-md-12">
+                <thead style="color: white;background-color: #04519b">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Photo</th>
+                        <th>NIN</th>
+                        <th>State</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FullName</td>
+                            <td><img src="@Url.Content(item.Photo)" style="width:50px;height:50px;border-radius:100%" /></td>
+                            <td>@item.NIN</td>
+                            <td>@item.State</td>
+                            <td>@item.Email</td>
+                            <td>
+                                <a class="text-info" style="color:white" asp-action="GetUpdate" asp-controller="Admin" asp-route-id="@item.Id"> Edit</a>
+                                <a class="text-danger" style="color:white"asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <br /><br />
+        </div><br /><br />
+        <div class="form-group col-m4-4">
+            @{
+                var DisablePrevious = !Model.IsPreviousPageAvailabe ? "disabled" : "";
+                var DisableNext = !Model.IsNextPageAvailabe ? "disabled" : "";
+            }<br />
+            <br />
+
+            <a asp-action="Index1" asp-route-PageNumber="@(Model.PageIndex - 1)" class="btn btn-primary @DisablePrevious">
+                Previous
+            </a>
+            <a asp-action="Index1" asp-route-PageNumber="@(Model.PageIndex + 1)" class="btn btn-primary @DisableNext">
+                Next
+            </a>
+        </div>
+       
+    </div>
+</div>
+@*@section Scripts{
+<script>
+    $(document).ready(function () {
+        $("#demo").on("click", ".js-button", function(result) {
+            var button=$(this);
+            confirm("Are You Sure You want to delete this Customer");
+            if (result) {
+                $.ajax({
+                    url: "/api/testing/" + button.attr("data-value-id"),
+                    method: "DELETE",
+                    success: function () {
+                        button.parents("tr").remove();
+                    }
+                    
+                    
+                })
+            }
+
+        })
+
+
+    });
+</script>
+ }*@
+

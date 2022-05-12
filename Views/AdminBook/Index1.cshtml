@@ -1,0 +1,148 @@
+﻿@model Pagination<OnlineBookingApplication.Models.AdminModel.BookViewModel>
+
+@{
+    ViewBag.Title = "Admin";
+}
+<div class="container-fluid">
+    <div class="card" style="background-color:white;border-radius:5px;width:100%;padding:30px">
+        <div class="card-body" style="width:100%">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Admin Panel</li>
+                    <li class="float-right">Email:Admin@gmail.com</li>
+                </ol>
+            </nav>
+            <h3 style="margin-top:20px">Manage Book</h3><br />
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <select class="form-control">
+                        <option disabled selected hidden>Ticket Type</option>
+                        <option>Regular</option>
+                        <option>Sliver</option>
+                        <option>Gold</option>
+                        <option>VIP</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <select class="form-control">
+                        <option value="" disabled selected hidden>From</option>
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        @*<option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                        <option value="Aba, Factory Road">Aba, Factory Road</option>*@
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        @*<option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                        <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                        <option value="Abuja, Utako">Abuja, Utako</option>
+                        <option value="Abuja, Zuba">Abuja, Zuba</option>*@
+
+                        <option value="Enugu, Abakpa</">Enugu, Abakpa</option>
+                        @*<option value="Enugu, Emene">Enugu, Emene</option>
+                        <option value="Enugu, Garriki">Enugu, Garriki</option>
+                        <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                        <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                        <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>*@
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        @*<option value="Awka,Aroma junction">Awka,Aroma junction</option>*@
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <select class="form-control">
+                        <option value="" disabled selected hidden>To</option>
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        @*<option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                        <option value="Aba, Factory Road">Aba, Factory Road</option>*@
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        @*<option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                        <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                        <option value="Abuja, Utako">Abuja, Utako</option>
+                        <option value="Abuja, Zuba">Abuja, Zuba</option>*@
+
+                        <option value="Enugu, Abakpa">Enugu, Abakpa</option>
+                        @*<option value="Enugu, Emene">Enugu, Emene</option>
+                        <option value="Enugu, Garriki">Enugu, Garriki</option>
+                        <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                        <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                        <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>*@
+
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        @*<option value="Awka,Aroma junction">Awka,Aroma junction</option>*@
+
+                    </select>
+                </div>
+                <div class="col-md-6 float-right mb-3">
+                    <a style="border: 1px solid #1d9ce5; background-color: #1d9ce5; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center; text-decoration: none">Total:@Model.Count</a>
+                </div>
+            </div>
+            <br />
+            <div class="table-responsive-md">
+                <table class="table-striped col-md-12">
+                    <thead style="color: white;background-color: #04519b;padding:10px">
+                        <tr>
+                            <th>BookId</th>
+                            <th>Ticket Type</th>
+                            <th>Payment Type</th>
+                            <th>Seat No</th>
+                            <th>Special Request</th>
+                            <th>Book For Other</th>
+                            <th> From</th>
+                            <th>To</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><p>PMT @item.Id</p></td>
+                                <td>@item.TicketType</td>
+                                <td>@item.Payment</td>
+                                <td>@item.SeatNoId</td>
+                                <td>@item.SpecialRequest</td>
+                                <td>@item.BookForOther</td>
+                                <td>@item.DepartureFrom</td>
+                                <td>@item.ArivalTo</td>
+                                <td>
+                                    <a class="text-info" asp-action="Update" asp-controller="AdminBook" asp-route-id="@item.Id"> Edit</a>
+                                    <a class="text-success" asp-action="Index" asp-controller="AdminTransaction" asp-route-id="@item.Id">Pay</a>
+                                    <a class="text-danger" asp-action="Index" asp-controller="AdminPayslip" asp-route-id="@item.Id">Payslip</a>
+                                    <a class="text-danger" asp-action="Delete" asp-controller="AdminBook" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                         }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="form-group col-m4-4">
+            @{
+                var DisablePrevious = !Model.IsPreviousPageAvailabe ? "disabled" : "";
+                var DisableNext = !Model.IsNextPageAvailabe ? "disabled" : "";
+            }<br />
+            <br />
+
+            <a asp-action="Index1" asp-route-PageNumber="@(Model.PageIndex - 1)" class="btn btn-primary @DisablePrevious">
+                Previous
+            </a>
+            <a asp-action="Index1" asp-route-PageNumber="@(Model.PageIndex + 1)" class="btn btn-primary @DisableNext">
+                Next
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+

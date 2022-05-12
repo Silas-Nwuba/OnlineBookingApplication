@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using OnlineBookingApplication.Models;
@@ -11,7 +12,7 @@ using ProjectServices;
 
 namespace OnlineBookingApplication.Controllers
 {
-
+    [Authorize]
     public class CustomerController : Controller
     {
         private readonly ICustomer _customer;
@@ -26,14 +27,14 @@ namespace OnlineBookingApplication.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var ViewModel = new CustomerIndexViewModel();
+            var ViewModel = new CustomerIndexViewModels();
             return View(ViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CustomerIndexViewModel customerIndexViewModel)
+        public async Task<IActionResult> Create(CustomerIndexViewModels customerIndexViewModel)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var ViewModel = new Customer
                 {

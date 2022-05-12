@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using OnlineBookingApplication.Persistence;
 
 namespace OnlineBookingApplication.Areas.Identity.Pages.Account
 {
@@ -20,14 +21,16 @@ namespace OnlineBookingApplication.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly ApplicationDbContext _Context;
 
         public LoginModel(SignInManager<IdentityUser> signInManager, 
-            ILogger<LoginModel> logger,
+            ILogger<LoginModel> logger, ApplicationDbContext applicationDbContext,
             UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _Context = applicationDbContext;
         }
 
         [BindProperty]
@@ -42,6 +45,7 @@ namespace OnlineBookingApplication.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            public string Result { get; set; }
             [Required]
             [EmailAddress]
             public string Email { get; set; }
@@ -58,7 +62,7 @@ namespace OnlineBookingApplication.Areas.Identity.Pages.Account
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
-                ModelState.AddModelError(string.Empty, ErrorMessage);
+                ModelState.AddModelError(string.Empty,ErrorMessage);
             }
 
             returnUrl = returnUrl ?? Url.Content("~/");
@@ -79,15 +83,17 @@ namespace OnlineBookingApplication.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure:false);
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    
+                    return RedirectToAction("Index","Customer");
                 }
                 if (result.RequiresTwoFactor)
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    return RedirectToPage("./LoginWith2f", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
@@ -101,7 +107,7 @@ namespace OnlineBookingApplication.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // If we got this far, something failed, redisplall form
             return Page();
         }
     }

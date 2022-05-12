@@ -1,10 +1,10 @@
-﻿@model CustomerIndexViewModel
+﻿@model CustomerIndexViewModels
 @{
     ViewBag.Title = "Booking";
 }
 <div class="container">
 
-    <div class="card"style="border-radius:5px">
+    <div class="card" style="border-radius:5px">
         <div class="card-body" style="background-color:white;border-radius:4px">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -12,161 +12,141 @@
                 </ol>
             </nav>
             <br />
-                  <form method="post" enctype="multipart/form-data" asp-action="Create">
-                      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                      <h4>Personal Details</h4>
-                      <hr /><br />
-                      <div class="form-row">
-                          <div class="form-group col-md-1">
-                              <label asp-for="FirstName"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="FirstName" class="form-control" />
-                              <span asp-validation-for="FirstName" class="text-danger"></span>
-                          </div>
+            <form method="post" enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h4>Personal Details</h4>
+                <hr /><br />
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="FirstName"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="LastName"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
 
-                          <div class="form-group col-md-1">
-                              <label asp-for="LastName"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="LastName" class="form-control" />
-                              <span asp-validation-for="LastName" class="text-danger"></span>
-                          </div>
-                          <div class="form-group col-md-1">
-                              <label asp-for="Gender"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <select asp-for="Gender" class="form-control">
-                                  <option value="" disabled selected hidden>Select Gender</option>
-                                  <option>Male</option>
-                                  <option>Female</option>
-                              </select>
-                              <span asp-validation-for="Gender" class="text-danger"></span>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Gender"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="Gender" class="form-control">
+                            <option value="" disabled selected hidden>Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
 
+                    </div>
+                </div>
+                <div></div>
 
-                          </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Email"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
 
-                      </div>
-                      <div></div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PhoneNumber"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                  
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="State"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="State" class="form-control">
+                            <option value="" disabled selected hidden>Select City</option>
+                            <option>Abia</option>
+                            <option>Adamawa</option>
+                            <option>Akwa Ibom</option>
+                            <option>Anambra</option>
+                            <option>Bauchi</option>
+                            <option>Bayelsa</option>
+                            <option>Benue</option>
+                            <option>Borno</option>
+                            <option>Cross River</option>
+                            <option>Delta</option>
+                            <option>Ebonyi</option>
+                            <option>Edo</option>
+                            <option>Ekiti</option>
+                            <option>Enugu</option>
+                            <option>Gombe</option>
+                            <option>Imo</option>
+                            <option>Jigawa</option>
+                            <option>Kaduna</option>
+                            <option> Kano</option>
+                            <option> Katsina</option>
+                            <option> Kebbi</option>
+                            <option> Kogi</option>
+                            <option> Kwara</option>
+                            <option> Lagos</option>
+                            <option> Nasarawa</option>
+                            <option>Niger</option>
+                            <option>Ogun</option>
+                            <option>Ondo</option>
+                            <option>Osun</option>
+                            <option>Oyo</option>
+                            <option>Plateau</option>
+                            <option>Rivers</option>
+                            <option>Sokoto</option>
+                            <option>Taraba</option>
+                            <option>Yobe</option>
+                            <option>Zamfara</option>
+                            <option>Abia</option>
+                            <option>Fct</option>
 
-                      <div class="form-row">
-                          <div class="form-group col-md-1">
-                              <label asp-for="Email"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="Email" class="form-control" />
-                              <span asp-validation-for="Email" class="text-danger"></span>
-                          </div>
+                        </select>
+                        <span asp-validation-for="State" class="text-danger"></span>
+                    </div>
 
-                          <div class="form-group col-md-1">
-                              <label asp-for="PhoneNumber"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="PhoneNumber" class="form-control" />
-                              <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                          </div>
-                          <div class="form-group col-md-1">
-                              <label asp-for="State"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <select asp-for="State" class="form-control">
-                                  <option value="" disabled selected hidden>Select City</option>
-                                  <option>Abia</option>
-                                  <option>Adamawa</option>
-                                  <option>Akwa Ibom</option>
-                                  <option>Anambra</option>
-                                  <option>Bauchi</option>
-                                  <option>Bayelsa</option>
-                                  <option>Benue</option>
-                                  <option>Borno</option>
-                                  <option>Cross River</option>
-                                  <option>Delta</option>
-                                  <option>Ebonyi</option>
-                                  <option>Edo</option>
-                                  <option>Ekiti</option>
-                                  <option>Enugu</option>
-                                  <option>Gombe</option>
-                                  <option>Imo</option>
-                                  <option>Jigawa</option>
-                                  <option>Kaduna</option>
-                                  <option> Kano</option>
-                                  <option> Katsina</option>
-                                  <option> Kebbi</option>
-                                  <option> Kogi</option>
-                                  <option> Kwara</option>
-                                  <option> Lagos</option>
-                                  <option> Nasarawa</option>
-                                  <option>Niger</option>
-                                  <option>Ogun</option>
-                                  <option>Ondo</option>
-                                  <option>Osun</option>
-                                  <option>Oyo</option>
-                                  <option>Plateau</option>
-                                  <option>Rivers</option>
-                                  <option>Sokoto</option>
-                                  <option>Taraba</option>
-                                  <option>Yobe</option>
-                                  <option>Zamfara</option>
-                                  <option>Abia</option>
-                                  <option>Fct</option>
+                </div>
+                <div></div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="NIN"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="NIN" class="form-control" />
+                        <span asp-validation-for="NIN" class="text-danger"></span>
+                    </div>
+                    
 
-                              </select>
-                              <span asp-validation-for="State" class="text-danger"></span>
-                          </div>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="NextOfKin"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="NextOfKin" class="form-control" />
+                        <span asp-validation-for="NextOfKin" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="NextofKinPhone"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="NextofKinPhone" class="form-control" />
+                        <span asp-validation-for="NextofKinPhone" class="text-danger"></span>
+                    </div>
+                </div>
+               
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Age"></label>
+                        <input asp-for="Age" class="form-control" placeholder="Optional"/>
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="ImageUrl"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="ImageUrl" class="form-control" value="Upload"style="outline:none" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" style="border: 1px solid #54b4eb; width: 90px; background-color: #54b4eb;float:left;padding:10px;color:white;font-weight:bold;border-radius:5px;outline:none">Submit</button>
+                    <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="Home">Back</a>
+                </div>
 
-                      </div>
-                      <div></div>
-                      <div class="form-row">
-                          <div class="form-group col-md-1">
-                              <label asp-for="NIN"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="NIN" class="form-control" />
-                              <span asp-validation-for="NIN" class="text-danger"></span>
-                          </div>
-
-                          <div class="form-group col-md-1">
-                              <label asp-for="NextOfKin"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="NextOfKin" class="form-control" />
-                              <span asp-validation-for="NextOfKin" class="text-danger"></span>
-                          </div>
-                          <div class="form-group col-md-1">
-                              <label asp-for="NextofKinPhone"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="NextofKinPhone" class="form-control" />
-                              <span asp-validation-for="NextofKinPhone" class="text-danger"></span>
-                          </div>
-                      </div>
-                      <div></div>
-                      <div class="form-row">
-                          <div class="form-group col-md-1">
-                              <label asp-for="Age"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="Age" class="form-control" />
-                              <span asp-validation-for="Age" class="text-danger"></span>
-                          </div>
-                          <div class="form-group col-md-1">
-                              <label asp-for="ImageUrl"></label>
-                          </div>
-                          <div class="form-group col-md-3">
-                              <input asp-for="ImageUrl" class="form-control" value="Upload" />
-                              <span asp-validation-for="ImageUrl" class="text-danger"></span>
-                          </div>
-                      </div>
-                       <br />
-                      <div class="form-group">
-                          <button type="submit" style="border: 1px solid #54b4eb; width: 90px; background-color: #54b4eb;float:left;padding:10px;color:white;font-weight:bold;border-radius:5px;outline:none">Submit</button>
-                          <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="Home">Back</a>
-                      </div>
-
-                      <br />
-                      <br />
-                      <br />
-                  </form>
+                <br />
+                <br />
+                <br />
+            </form>
         </div>
     </div>
 </div>

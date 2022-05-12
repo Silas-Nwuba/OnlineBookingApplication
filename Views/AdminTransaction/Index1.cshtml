@@ -1,0 +1,108 @@
+﻿@model TransactionIndexViewModel
+@{
+    ViewBag.Title = "Booking";
+}
+<div class="container">
+    <div class="card col-md-6 col-md-offset-3" style="border-radius:5px">
+        <div class="card-body" style="background-color:white">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">GMT Motor</li>
+                    <li class="breadcrumb-item">Booking System</li>
+                    <li class="breadcrumb-item">Admin Panel</li>
+                </ol>
+            </nav>
+            <br />
+            <div class="details">
+                <div>
+                    <h4>Transaction Details</h4>
+                </div>
+
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12 ml-0 justify-content-center">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p3 class="font-weight-bold">Travelling From </p3>
+                        </div>
+                        <div class="col-md-4" style="text-align:center">
+                            <p3 class="font-weight-normal">@Model.DepatureFrom</p3> =>
+                            <p3 class="font-weight-normal">@Model.ArivalTo</p3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 style="float:right" class="mr-5"> ₦ @Model.TravelPrice.ToString("")</h4>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-md-4">
+                            <p3 class="font-weight-normal">Special Request</p3>
+                        </div>
+                        <div class="col-md-4" style="text-align:center">
+                            <p3 class="font-weight-normal">@Model.SpecialRequest</p3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="font-weight-normal mr-5" style="font-size:18px; float:right"> ₦ @Model.SpecialAmount.ToString("f")</h4>
+                        </div>
+                    </div>
+                    <div></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p3> Book For Other</p3>
+                        </div>
+                        <div class="col-md-4" style="text-align:center">
+                            <p3>@Model.BookFother</p3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="font-weight-normal mr-5" style="font-size:18px;float:right"> ₦ @Model.BookAmount.ToString("f")</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p3>Ticket Type</p3>
+                        </div>
+                        <div class="col-md-4" style="text-align:center">
+                            <p3>@Model.TicketType</p3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 style="font-size:18px;float:right" class="mr-5"> ₦ @Model.TicketAmount.ToString("f")</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p3><b>Total Amount</b></p3>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 style="font-size:18px;float:right" class="mr-5">  ₦ @Model.TotalAmount.ToString("f")</h4>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <a id="submit" style="border: 1px solid darkred; width: 90px; background-color: darkred; float: left; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none; text-align: center; text-decoration: none " asp-action="Index" asp-controller="Home" onclick="myFunction()">Cancel</a>
+                        <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="AdminPayment" asp-route-id="@Model.Id">Proceed</a>
+                    </div>
+                </div>
+            </div>
+
+            <br /><br />
+
+        </div><br />
+
+    </div>
+</div>
+@section Scripts{
+    <script>
+        function myFunction() {
+            document.getElementsByClassName("submit")
+            {
+                confirm("Are you sure you want to cancel");
+            }
+        }
+    </script>
+}
+
+
+
+
+

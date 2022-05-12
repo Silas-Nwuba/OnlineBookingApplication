@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,48 +11,49 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/bootstrap-theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-info border-bottom">
             <div class="container">
-                <p class="font-weight-bold ml-3 p-4 text-white mt-3 float-left">Online Booking</p>
-
-                @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>*@
-                <div class="navbar-collapse collapse d-flex flex-end">
-                    <ul class="navbar-nav flex-grow-1 float-left">
-                        <li class="nav-item">
+                <p class="font-weight-bold ml-3 p-4 text-white mt-3">PMT Online Booking</p>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item d-flex justify-content-md-around">
                             <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="Customer" asp-action="Index">Home</a>
+                            @if(User.IsInRole("Admin"))
+                            { 
+                                <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="Admin" asp-action="Index1">Customer</a>
+                                <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="AdminBook" asp-action="Index1">Booking</a>
+                                <a class="nav-link text-white font-weight-bold" asp-area="" asp-controller="AdminPay" asp-action="Index">Payment</a>
+                            }
                         </li>
 
                     </ul>
-                    <div class="float-md-right">
+                    <div class="float-md-right mr-5">
                         <partial name="_LoginPartial" />
 
                     </div>
-
-
-
                 </div>
             </div>
         </nav>
+        @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>*@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <br /><br /> <br /><br /><br /><br /><br />
+   
+    <br /><br /> <br /><br /><br /><br /><br /><br />
     <footer class="border-top footer text-white bg-info">
         <div class="container">
-            <a asp-area="Register" asp-controller="Identity" asp-action="Account" class="text-white float-left">Register</a>
-            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-white float-left" style="margin-left:15px">Login</a>
-
+            <span>
+                <partial name="_LoginPartial" class="float-left" style="display:inline-flex" />
+            </span>
             <p class="float-right">&copy; 2022 - GMTMotorsApplication </p>
         </div>
     </footer>

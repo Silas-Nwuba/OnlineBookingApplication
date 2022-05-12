@@ -1,0 +1,206 @@
+﻿@model BookingRecordViewModel
+@{
+    ViewBag.Title = "Booking";
+}
+<div class="container">
+
+    <div class="card">
+        <div class="card-body" style="background-color:white">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">GMT Motor</li>
+                    <li class="breadcrumb-item">Admin Panel</li>
+                    <li class="breadcrumb-item">Booking System</li>
+                </ol>
+            </nav>
+            <br />
+            <h4>Booking Details</h4>
+            <hr /><br />
+            <form method="post" enctype="multipart/form-data" asp-action="UpdateBook">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-row">
+                    <div style="display:none" class="form-group col-md-4 mb-4">
+                        <input asp-for="CustomerId" class="form-control" readonly style="background-color: #ffffff75" />
+
+                    </div>
+                    <div style="display:none" class="form-group col-md-4 mb-4">
+                        <input asp-for="Id" class="form-control" readonly style="background-color: #ffffff75" />
+
+                    </div>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Bus"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="Bus" class="form-control" readonly style="background-color: #ffffff75" />
+                    </div>
+
+                    <div class="form-group col-md-4 mb-4">
+
+                        <label asp-for="FullName"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="FullName" class="form-control" readonly style="background-color: #ffffff75" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="NIN"></label><l style="color:red;font-weight:500">*</l>
+                        <input asp-for="NIN" class="form-control" readonly style="background-color: #ffffff75" />
+                        <span asp-validation-for="NIN" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="SeatNoId"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="SeatNoId" class="form-control" asp-items=" ViewBag.SeatNoId">
+                            <option value="" disabled selected hidden>Seat No</option>
+                        </select>
+                        <span asp-validation-for="SeatNoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="SpecialRequest"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="SpecialRequest" class="form-control">
+                            <option value="" disabled selected hidden>Select..</option>
+                            <option>No</option>
+                            <option>Yes</option>
+
+                        </select>
+                        <span asp-validation-for="SpecialRequest" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="BookForOther"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="BookForOther" class="form-control">
+                            <option value="" disabled selected hidden>Select..</option>
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                        <span asp-validation-for="BookForOther" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="TicketType"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="TicketType" class="form-control">
+                            <option value="" disabled selected hidden>Select..</option>
+                            <option>Reqular</option>
+                            <option>Gold</option>
+                            <option>Silver</option>
+                            <option>VIP</option>
+
+                        </select>
+                        <span asp-validation-for="TicketType" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Payment"></label><l style="color:red;font-weight:500">*</l>
+                        <select asp-for="Payment" class="form-control">
+                            <option>Transfer</option>
+                            <option>Visa Card</option>
+                            <option>Master Card</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-4 mb-4">
+                        <label asp-for="Date"></label><l style="color:red;font-weight:500">*</l>
+                        <input type="date" asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group mb-4">
+                    <div>
+                        <label asp-for="DepartureFrom"></label><l style="color:red;font-weight:500">*</l>
+                    </div>
+                    <select asp-for="DepartureFrom" class="form-control" id="depart" onchange="myDepart(this.value)">
+                        <option value="" disabled selected hidden>Select Terminal</option>
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        @*<option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                            <option value="Aba, Factory Road">Aba, Factory Road</option>*@
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+
+
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        @*<option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                            <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                            <option value="Abuja, Utako">Abuja, Utako</option>
+                            <option value="Abuja, Zuba">Abuja, Zuba</option>*@
+
+                        <option value="Enugu, Abakpa</">Enugu, Abakpa</option>
+                        @*<option value="Enugu, Emene">Enugu, Emene</option>
+                            <option value="Enugu, Garriki">Enugu, Garriki</option>
+                            <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                            <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                            <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>*@
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        @*<option value="Awka,Aroma junction">Awka,Aroma junction</option>*@
+
+
+                    </select>
+                    <span asp-validation-for="DepartureFrom" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-4">
+                    <div>
+                        <label asp-for="ArivalTo"></label><l style="color:red;font-weight:500">*</l>
+                    </div>
+                    <select asp-for="ArivalTo" class="form-control" id="Arival">
+                        <option value="" disabled selected hidden>Select Destination</option>
+
+                        <option value="Aba,  Asa Road Highway">Aba,  Asa Road Highway</option>
+                        @*<option value="Aba,  Asa Road Local">Aba,  Asa Road Local</option>
+                            <option value="Aba, Factory Road">Aba, Factory Road</option>*@
+                        <option value="Abakaliki,25A Afikpo Rd. Highway">Abakaliki,25A Afikpo Rd. Highway</option>
+
+
+                        <option value="Abuja, Gwagwalada">Abuja, Gwagwalada</option>
+                        @*<option value="Abuja, Kubwa">Abuja, Kubwa</option>
+                            <option value="Abuja, Mararaba">Abuja, Mararaba</option>
+                            <option value="Abuja, Utako">Abuja, Utako</option>
+                            <option value="Abuja, Zuba">Abuja, Zuba</option>*@
+
+                        <option value="Enugu, Abakpa">Enugu, Abakpa</option>
+                        @*<option value="Enugu, Emene">Enugu, Emene</option>
+                            <option value="Enugu, Garriki">Enugu, Garriki</option>
+                            <option value="Enugu, Ogbete">Enugu, Ogbete</option>
+                            <option value="Enugu, Okpara Avenue">Enugu, Okpara Avenue</option>
+                            <option value="Enugu-Ezike, Ogurute">Enugu-Ezike, Ogurute </option>*@
+
+
+                        <option value="Afikpo, Ngodo Road">Afikpo, Ngodo Road</option>
+                        <option value="Akure, 141 Oyemekun Road">Akure, 141 Oyemekun Road</option>
+                        <option value="Asaba, Head Bridge">Asaba, Head Bridge</option>
+                        <option value="Awka, Uni-Zik Junction Opposite">Awka, Uni-Zik Junction Opposite</option>
+                        @*<option value="Awka,Aroma junction">Awka,Aroma junction</option>*@
+
+
+                    </select>
+                    <span asp-validation-for="ArivalTo" class="text-danger"></span>
+                </div><br /><br />
+                <div class="form-group mb-4">
+                    <button type="submit" style="border: 1px solid #54b4eb; width: 90px; background-color: #54b4eb;float:left;padding:10px;color:white;font-weight:bold;border-radius:5px;outline:none">Submit</button>
+                    <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="Home">Back</a>
+                </div>
+
+            </form>
+            <br /><br />
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        function myDepart(depart) {
+            if (myDepart != "") {
+               /* document.getElementById("Arival").disabled = false;*/
+                $("#Arival option[value='" + depart + "']").hide();
+                $("#Arival option[value !='" + depart + "']").show();
+
+            }
+
+        };
+    </script>
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
